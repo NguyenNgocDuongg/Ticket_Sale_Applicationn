@@ -1,24 +1,38 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { Input } from 'antd';
-import { MailOutlined, BellOutlined } from '@ant-design/icons';
+import { MailOutlined, BellOutlined, SearchOutlined } from '@ant-design/icons';
+
 import './Header.css';
 import { Link } from 'react-router-dom';
 
 const { Search } = Input;
 const Header = () => {
+  const onSearch = (value: any) => console.log(value);
+  const suffix = <SearchOutlined style={{ fontSize: 24 }} />;
+
   return (
     <div
       style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
+        width: '100%',
       }}
     >
-      <img
-        style={{ width: 437, height: 48, marginRight: 600 }}
-        src="/imgs/search.jpg"
-      />
+      <div>
+        <Input
+          placeholder="Search"
+          size="large"
+          bordered={false}
+          suffix={suffix}
+          style={{
+            width: 400,
+            backgroundColor: '#EDE6E6',
+            borderRadius: 10,
+          }}
+        />
+      </div>
       <div
         style={{
           display: 'flex',

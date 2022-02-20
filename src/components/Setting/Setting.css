@@ -1,0 +1,11 @@
+.custom_button {
+  border-radius: 5px;
+  color: #ff993c;
+  font-weight: bold;
+  margin-left: 5px;
+  background-color: #fff;
+  border: 1px solid #ff993c;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}

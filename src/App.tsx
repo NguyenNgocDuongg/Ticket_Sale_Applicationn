@@ -53,6 +53,8 @@ function App() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
+            marginRight: 40,
+            width: '100%',
           }}
         >
           <Header />
@@ -61,6 +63,7 @@ function App() {
               backgroundColor: 'white',
               width: '100%',
               borderRadius: 20,
+
               marginTop: 10,
             }}
           >
