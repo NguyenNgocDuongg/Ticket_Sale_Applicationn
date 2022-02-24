@@ -170,7 +170,7 @@ const Home = () => {
     return <Area {...config} />;
   };
   return (
-    <div style={{ marginLeft: 15, marginRight: 30, marginTop: 20 }}>
+    <div className="body">
       <h1 style={{ fontWeight: 'bold' }}>Thống kê</h1>
       <div
         style={{

@@ -13,7 +13,7 @@ const Manage = () => {
   };
   const suffix = <SearchOutlined style={{ fontSize: 24 }} />;
   return (
-    <div style={{ marginLeft: 15, marginRight: 30, marginTop: 20 }}>
+    <div className="body">
       <h1 style={{ fontWeight: 'bold' }}>Danh sách vé </h1>
       <div
         style={{

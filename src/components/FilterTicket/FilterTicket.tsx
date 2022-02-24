@@ -22,7 +22,7 @@ const FilterTicket = () => {
 
   const onChange = (e: any) => {
     console.log('radio checked', e);
-    setValue(e);
+    setValue(e.target.value);
   };
   return (
     <div>
@@ -55,13 +55,12 @@ const FilterTicket = () => {
       <div style={{ marginTop: 20 }}>
         <b>Tình trạng sử dụng</b>
         <br />
-        {radioOptions.map((radioOption, index) => {
-          return (
-            <Radio.Group onChange={onChange} value={value}>
-              <Radio value={index}>{radioOption}</Radio>
-            </Radio.Group>
-          );
-        })}
+
+        <Radio.Group onChange={onChange} value={value}>
+          <Radio value={1}>{radioOptions[0]}</Radio>
+          <Radio value={2}>{radioOptions[1]}</Radio>
+          <Radio value={3}>{radioOptions[2]}</Radio>
+        </Radio.Group>
       </div>
       <div style={{ marginTop: 20 }}>
         <b>Cổng Check - in</b>

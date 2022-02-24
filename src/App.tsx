@@ -11,37 +11,6 @@ import Manage from 'components/Manage';
 import Control from './components/Control';
 import Setting from './components/Setting';
 
-// function AboutDuong() {
-//   return <div>Hello Duong</div>;
-// }
-
-// function AboutTu() {
-//   return <div>Hello Tu</div>;
-// }
-
-// function About() {
-//   let navigate = useNavigate();
-
-//   return (
-//     <>
-//       <Button
-//         onClick={() => {
-//           navigate('/');
-//         }}
-//       >
-//         Go to home
-//       </Button>
-//       <Link to="/about/duong">Duong</Link>
-//       <Link to="/about/tu">Tu</Link>
-//       <Routes>
-//         <Route path="duong" element={<AboutDuong />} />
-//         <Route path="tu" element={<AboutTu />} />
-//         <Route path="*" element={<Page404 />} />
-//       </Routes>
-//     </>
-//   );
-// }
-
 function App() {
   return (
     <div style={{ backgroundColor: '#F9F6F4' }}>
@@ -58,22 +27,14 @@ function App() {
           }}
         >
           <Header />
-          <div
-            style={{
-              backgroundColor: 'white',
-              width: '100%',
-              borderRadius: 20,
 
-              marginTop: 10,
-            }}
-          >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/manage/*" element={<Manage />} />
-              <Route path="/control/*" element={<Control />} />
-              <Route path="/setting/*" element={<Setting />} />
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/manage/*" element={<Manage />} />
+            <Route path="/control/*" element={<Control />} />
+
+            <Route path="/setting/*" element={<Setting />} />
+          </Routes>
         </div>
       </div>
     </div>

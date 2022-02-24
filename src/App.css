@@ -9,3 +9,11 @@
 .header {
   margin: 20px;
 }
+
+.body {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  width: 1240px;
+  padding: 20px;
+}
