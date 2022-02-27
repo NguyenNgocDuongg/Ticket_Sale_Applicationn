@@ -3,23 +3,36 @@ import React, { useState } from 'react';
 import { Button, Checkbox, Col, DatePicker, Radio, Row, Space } from 'antd';
 import 'antd/dist/antd.css';
 import './FilterTicket.css';
-
-const checkOptions = [
-  'Tất cả',
-  'Cổng 1',
-  'Cổng 2',
-  'Cổng 3',
-  'Cổng 4',
-  'Cổng 5',
+const CheckboxGroup = Checkbox.Group;
+const dataTable = [
+  {
+    gate: 'Cổng 5',
+  },
+  {
+    gate: 'Cổng 6',
+  },
 ];
 
-const radioOptions = ['Tất cả', 'Đã sử dụng', 'Chưa sử dụng', 'Hết hạn'];
+const checkOptions = ['Cổng 1', 'Cổng 2', 'Cổng 3', 'Cổng 4', 'Cổng 5'];
 
-const defaultCheckedList = ['Tất cả'];
+const radioOptions = ['Tất cả', 'Đã sử dụng', 'Chưa sử dụng', 'Hết hạn'];
+const filteredRows = dataTable.filter((row) => row.gate === 'Cổng 5');
+
 const style = { padding: '8px 0' };
 const FilterTicket = () => {
   const [value, setValue] = React.useState(1);
+  const [checked, setChecked] = useState([]);
+  const [checkAll, setCheckAll] = useState(false);
+  const onChangeCheck = (list: any) => {
+    setChecked(list);
 
+    setCheckAll(list.length === checkOptions.length);
+  };
+  const onChangeCheckAll = (e: any) => {
+    setChecked([]);
+
+    setCheckAll(e.target.checked);
+  };
   const onChange = (e: any) => {
     console.log('radio checked', e);
     setValue(e.target.value);
@@ -65,18 +78,22 @@ const FilterTicket = () => {
       <div style={{ marginTop: 20 }}>
         <b>Cổng Check - in</b>
         <br />
-        <Row>
-          {checkOptions.map((checkOption) => {
-            return (
-              <Col className="gutter-row" span={8}>
-                <div>
-                  <Checkbox>{checkOption}</Checkbox>
-                </div>
-              </Col>
-            );
-          })}
-        </Row>
+        <Checkbox.Group>
+          <Row>
+            <Col span={8}>
+              <Checkbox checked={checkAll} onChange={onChangeCheckAll}>
+                Tất cả
+              </Checkbox>
+              <CheckboxGroup
+                options={checkOptions}
+                value={checked}
+                onChange={onChangeCheck}
+              />
+            </Col>
+          </Row>
+        </Checkbox.Group>
       </div>
+
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Button
           type="dashed"
