@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Dropdown, Button } from 'antd';
 import React from 'react';
 import { Line } from '@ant-design/charts';
 import ReactDOM from 'react-dom';
 import { Area, Pie, G2 } from '@ant-design/plots';
+import Calendar from '../Calendar';
 const { RangePicker } = DatePicker;
+
 const Home = () => {
   const DemoPie = () => {
     const data = [
@@ -138,18 +140,8 @@ const Home = () => {
   const DemoArea = () => {
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-      // asyncFetch();
-    }, []);
+    useEffect(() => {}, []);
 
-    // const asyncFetch = () => {
-    //   fetch(dataChart)
-    //     .then((response) => response.json())
-    //     .then((json) => setData(json))
-    //     .catch((error) => {
-    //       console.log('fetch data failed', error);
-    //     });
-    // };
     const config = {
       data: dataChart,
       smooth: true,
@@ -187,7 +179,9 @@ const Home = () => {
             marginRight: '50',
           }}
         >
-          <DatePicker picker="week" bordered={true} />
+          <Dropdown overlay={<Calendar />}>
+            <Button style={{ borderRadius: 8 }}>Tháng 2, 2022</Button>
+          </Dropdown>
         </div>
       </div>
       <div>
