@@ -10,34 +10,41 @@ import './App.css';
 import Manage from 'components/Manage';
 import Control from './components/Control';
 import Setting from './components/Setting';
+import { Provider } from 'react-redux';
+import { rrfProps, store } from 'redux/store';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 
 function App() {
   return (
-    <div style={{ backgroundColor: '#F9F6F4' }}>
-      <div style={{ display: 'flex', height: '1000' }}>
-        <Sidebar />
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <div style={{ backgroundColor: '#F9F6F4' }}>
+          <div style={{ display: 'flex', height: '1000' }}>
+            <Sidebar />
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            marginRight: 40,
-            width: '100%',
-          }}
-        >
-          <Header />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                marginRight: 40,
+                width: '100%',
+              }}
+            >
+              <Header />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/manage/*" element={<Manage />} />
-            <Route path="/control/*" element={<Control />} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/manage/*" element={<Manage />} />
+                <Route path="/control/*" element={<Control />} />
 
-            <Route path="/setting/*" element={<Setting />} />
-          </Routes>
+                <Route path="/setting/*" element={<Setting />} />
+              </Routes>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </ReactReduxFirebaseProvider>
+    </Provider>
   );
 }
 
