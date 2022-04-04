@@ -15,6 +15,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Initialize other services on firebase instance
-// firebase.firestore(); // <- needed if using firestore
+firebase.firestore(); // <- needed if using firestore
 
 export default firebase;
